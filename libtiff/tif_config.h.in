@@ -1,162 +1,154 @@
 /* libtiff/tif_config.h.in.  Generated from configure.ac by autoheader.  */
-
+#ifndef __tif_config_h
+#define __tif_config_h
 /* Define if building universal (internal helper macro) */
 #undef AC_APPLE_UNIVERSAL_BUILD
 
 /* Support CCITT Group 3 & 4 algorithms */
-#undef CCITT_SUPPORT
+#define CCITT_SUPPORT 1
 
 /* Pick up YCbCr subsampling info from the JPEG data stream to support files
    lacking the tag (default enabled). */
-#undef CHECK_JPEG_YCBCR_SUBSAMPLING
+#cmakedefine CHECK_JPEG_YCBCR_SUBSAMPLING
 
 /* Support C++ stream API (requires C++ compiler) */
-#undef CXX_SUPPORT
+#cmakedefine CXX_SUPPORT
 
 /* Treat extra sample as alpha (default enabled). The RGBA interface will
    treat a fourth sample with no EXTRASAMPLE_ value as being ASSOCALPHA. Many
    packages produce RGBA files but don't mark the alpha properly. */
-#undef DEFAULT_EXTRASAMPLE_AS_ALPHA
+#cmakedefine DEFAULT_EXTRASAMPLE_AS_ALPHA
 
 /* Use the Apple OpenGL framework. */
-#undef HAVE_APPLE_OPENGL_FRAMEWORK
+#cmakedefine HAVE_APPLE_OPENGL_FRAMEWORK
 
 /* Define to 1 if you have the <assert.h> header file. */
-#undef HAVE_ASSERT_H
+#cmakedefine HAVE_ASSERT_H @HAVE_ASSERT_H@
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
-#undef HAVE_DLFCN_H
+#cmakedefine HAVE_DLFCN_H @HAVE_DLFCN_H@
 
 /* Define to 1 if you have the <fcntl.h> header file. */
-#undef HAVE_FCNTL_H
+#cmakedefine HAVE_FCNTL_H @HAVE_FCNTL_H@
 
 /* Define to 1 if you have the `floor' function. */
-#undef HAVE_FLOOR
+#cmakedefine HAVE_FLOOR @HAVE_FLOOR@
 
 /* Define to 1 if you have the `getopt' function. */
-#undef HAVE_GETOPT
+#cmakedefine HAVE_GETOPT @HAVE_GETOPT@
 
 /* Define as 0 or 1 according to the floating point format suported by the
    machine */
-#undef HAVE_IEEEFP
+#define HAVE_IEEEFP 1
 
 /* Define to 1 if the system has the type `int16'. */
-#undef HAVE_INT16
+#cmakedefine HAVE_INT16
 
 /* Define to 1 if the system has the type `int32'. */
-#undef HAVE_INT32
+#cmakedefine HAVE_INT32
 
 /* Define to 1 if the system has the type `int8'. */
-#undef HAVE_INT8
+#cmakedefine HAVE_INT8
 
 /* Define to 1 if you have the <inttypes.h> header file. */
-#undef HAVE_INTTYPES_H
-
-/* Define to 1 if you have the <io.h> header file. */
-#undef HAVE_IO_H
+#cmakedefine HAVE_INTTYPES_H @HAVE_INTTYPES_H@
 
 /* Define to 1 if you have the `isascii' function. */
-#undef HAVE_ISASCII
-
-/* Define to 1 if you have the `jbg_newlen' function. */
-#undef HAVE_JBG_NEWLEN
-
-/* Define to 1 if you have the `lfind' function. */
-#undef HAVE_LFIND
+#cmakedefine HAVE_ISASCII @HAVE_ISASCII@
 
 /* Define to 1 if you have the `c' library (-lc). */
-#undef HAVE_LIBC
+#cmakedefine HAVE_LIBC
 
 /* Define to 1 if you have the `m' library (-lm). */
-#undef HAVE_LIBM
+#cmakedefine HAVE_LIBM
 
 /* Define to 1 if you have the <limits.h> header file. */
-#undef HAVE_LIMITS_H
+#cmakedefine HAVE_LIMITS_H @HAVE_LIMITS_H@
 
 /* Define to 1 if you have the <malloc.h> header file. */
-#undef HAVE_MALLOC_H
+#cmakedefine HAVE_MALLOC_H @HAVE_MALLOC_H@
 
 /* Define to 1 if you have the `memmove' function. */
-#undef HAVE_MEMMOVE
+#cmakedefine HAVE_MEMMOVE @HAVE_MEMMOVE@
 
 /* Define to 1 if you have the <memory.h> header file. */
-#undef HAVE_MEMORY_H
+#cmakedefine HAVE_MEMORY_H @HAVE_MEMORY_H@
 
 /* Define to 1 if you have the `memset' function. */
-#undef HAVE_MEMSET
+#cmakedefine HAVE_MEMSET @HAVE_MEMSET@
 
 /* Define to 1 if you have the `mmap' function. */
-#undef HAVE_MMAP
+#cmakedefine HAVE_MMAP @HAVE_MMAP@
 
 /* Define to 1 if you have the `pow' function. */
-#undef HAVE_POW
+#cmakedefine HAVE_POW @HAVE_POW@
 
 /* Define if you have POSIX threads libraries and header files. */
-#undef HAVE_PTHREAD
-
-/* Define to 1 if you have the <search.h> header file. */
-#undef HAVE_SEARCH_H
-
-/* Define to 1 if you have the `setmode' function. */
-#undef HAVE_SETMODE
+#cmakedefine HAVE_PTHREAD
 
 /* Define to 1 if you have the `sqrt' function. */
-#undef HAVE_SQRT
+#cmakedefine HAVE_SQRT @HAVE_SQRT@
 
 /* Define to 1 if you have the <stdint.h> header file. */
-#undef HAVE_STDINT_H
+#cmakedefine HAVE_STDINT_H @HAVE_STDINT_H@
 
 /* Define to 1 if you have the <stdlib.h> header file. */
-#undef HAVE_STDLIB_H
+#cmakedefine HAVE_STDLIB_H @HAVE_STDLIB_H@
 
 /* Define to 1 if you have the `strcasecmp' function. */
-#undef HAVE_STRCASECMP
+#cmakedefine HAVE_STRCASECMP @HAVE_STRCASECMP@
 
 /* Define to 1 if you have the `strchr' function. */
-#undef HAVE_STRCHR
+#cmakedefine HAVE_STRCHR @HAVE_STRCHR@
 
 /* Define to 1 if you have the <strings.h> header file. */
-#undef HAVE_STRINGS_H
+#cmakedefine HAVE_STRINGS_H @HAVE_STRINGS_H@
 
 /* Define to 1 if you have the <string.h> header file. */
-#undef HAVE_STRING_H
+#cmakedefine HAVE_STRING_H @HAVE_STRING_H@
 
 /* Define to 1 if you have the `strrchr' function. */
-#undef HAVE_STRRCHR
+#cmakedefine HAVE_STRRCHR @HAVE_STRRCHR@
 
 /* Define to 1 if you have the `strstr' function. */
-#undef HAVE_STRSTR
+#cmakedefine HAVE_STRSTR @HAVE_STRSTR@
 
 /* Define to 1 if you have the `strtol' function. */
-#undef HAVE_STRTOL
+#cmakedefine HAVE_STRTOL @HAVE_STRTOL@
 
 /* Define to 1 if you have the `strtoul' function. */
-#undef HAVE_STRTOUL
-
-/* Define to 1 if you have the `strtoull' function. */
-#undef HAVE_STRTOULL
+#cmakedefine HAVE_STRTOUL @HAVE_STRTOUL@
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
-#undef HAVE_SYS_STAT_H
+#cmakedefine HAVE_SYS_STAT_H @HAVE_SYS_STAT_H@
 
 /* Define to 1 if you have the <sys/time.h> header file. */
-#undef HAVE_SYS_TIME_H
+#cmakedefine HAVE_SYS_TIME_H @HAVE_SYS_TIME_H@
 
 /* Define to 1 if you have the <sys/types.h> header file. */
-#undef HAVE_SYS_TYPES_H
+#cmakedefine HAVE_SYS_TYPES_H @HAVE_SYS_TYPES_H@
 
 /* Define to 1 if you have the <unistd.h> header file. */
-#undef HAVE_UNISTD_H
+#cmakedefine HAVE_UNISTD_H @HAVE_UNISTD_H@
 
 /* Define to 1 if you have the <windows.h> header file. */
-#undef HAVE_WINDOWS_H
+#cmakedefine HAVE_WINDOWS_H @HAVE_WINDOWS_H@
 
 /* Native cpu byte order: 1 if big-endian (Motorola) or 0 if little-endian
    (Intel) */
-#undef HOST_BIGENDIAN
+#ifdef CMAKE_WORDS_BIGENDIAN
+  #define HOST_BIGENDIAN 1
+#else
+  #define HOST_BIGENDIAN 0
+#endif
 
 /* Set the native cpu bit order (FILLORDER_LSB2MSB or FILLORDER_MSB2LSB) */
-#undef HOST_FILLORDER
+#ifdef CMAKE_WORDS_BIGENDIAN
+  #define HOST_FILLORDER FILLORDER_LSB2MSB
+#else
+  #define HOST_FILLORDER FILLORDER_MSB2LSB
+#endif
+
 
 /* Support ISO JBIG compression (requires JBIG-KIT library) */
 #undef JBIG_SUPPORT
@@ -165,130 +157,131 @@
 #undef JPEG_DUAL_MODE_8_12
 
 /* Support JPEG compression (requires IJG JPEG library) */
-#undef JPEG_SUPPORT
+#cmakedefine JPEG_SUPPORT @JPEG_SUPPORT@
 
 /* 12bit libjpeg primary include file with path */
 #undef LIBJPEG_12_PATH
 
 /* Support LogLuv high dynamic range encoding */
-#undef LOGLUV_SUPPORT
+#define LOGLUV_SUPPORT 1
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
    */
 #undef LT_OBJDIR
 
 /* Support LZW algorithm */
-#undef LZW_SUPPORT
+#define LZW_SUPPORT 1
 
 /* Support Microsoft Document Imaging format */
 #undef MDI_SUPPORT
 
 /* Support NeXT 2-bit RLE algorithm */
-#undef NEXT_SUPPORT
+#define NEXT_SUPPORT 1
 
 /* Define to 1 if your C compiler doesn't accept -c and -o together. */
-#undef NO_MINUS_C_MINUS_O
+#cmakedefine NO_MINUS_C_MINUS_O
 
-/* Support Old JPEG compresson (read-only) */
-#undef OJPEG_SUPPORT
+/* Support Old JPEG compresson (read contrib/ojpeg/README first! Compilation
+   fails with unpatched IJG JPEG library) */
+#cmakedefine OJPEG_SUPPORT
 
 /* Name of package */
-#undef PACKAGE
+#cmakedefine PACKAGE
 
 /* Define to the address where bug reports for this package should be sent. */
-#undef PACKAGE_BUGREPORT
+#cmakedefine PACKAGE_BUGREPORT
 
 /* Define to the full name of this package. */
-#undef PACKAGE_NAME
+#cmakedefine PACKAGE_NAME
 
 /* Define to the full name and version of this package. */
-#undef PACKAGE_STRING
+#cmakedefine PACKAGE_STRING
 
 /* Define to the one symbol short name of this package. */
-#undef PACKAGE_TARNAME
+#cmakedefine PACKAGE_TARNAME
 
 /* Define to the home page for this package. */
 #undef PACKAGE_URL
 
 /* Define to the version of this package. */
-#undef PACKAGE_VERSION
+#cmakedefine PACKAGE_VERSION
 
 /* Support Macintosh PackBits algorithm */
-#undef PACKBITS_SUPPORT
+#define PACKBITS_SUPPORT 1
 
 /* Support Pixar log-format algorithm (requires Zlib) */
-#undef PIXARLOG_SUPPORT
+#cmakedefine PIXARLOG_SUPPORT
 
-/* Define to necessary symbol if this constant uses a non-standard name on
+/* Define to the necessary symbol if this constant uses a non-standard name on
    your system. */
-#undef PTHREAD_CREATE_JOINABLE
+#cmakedefine PTHREAD_CREATE_JOINABLE
 
 /* The size of `signed int', as computed by sizeof. */
-#undef SIZEOF_SIGNED_INT
+#cmakedefine SIZEOF_SIGNED_INT @SIZEOF_SIGNED_INT@
 
 /* The size of `signed long', as computed by sizeof. */
-#undef SIZEOF_SIGNED_LONG
+#cmakedefine SIZEOF_SIGNED_LONG @SIZEOF_SIGNED_LONG@
 
 /* The size of `signed long long', as computed by sizeof. */
-#undef SIZEOF_SIGNED_LONG_LONG
+#cmakedefine SIZEOF_SIGNED_LONG_LONG @SIZEOF_SIGNED_LONG_LONG@
 
 /* The size of `signed short', as computed by sizeof. */
-#undef SIZEOF_SIGNED_SHORT
+#cmakedefine SIZEOF_SIGNED_SHORT @SIZEOF_SIGNED_SHORT@
 
 /* The size of `unsigned char *', as computed by sizeof. */
-#undef SIZEOF_UNSIGNED_CHAR_P
+#cmakedefine SIZEOF_UNSIGNED_CHAR_P @SIZEOF_UNSIGNED_CHAR_P@
 
 /* The size of `unsigned int', as computed by sizeof. */
-#undef SIZEOF_UNSIGNED_INT
+#cmakedefine SIZEOF_UNSIGNED_INT @SIZEOF_UNSIGNED_INT@
 
 /* The size of `unsigned long', as computed by sizeof. */
-#undef SIZEOF_UNSIGNED_LONG
+#cmakedefine SIZEOF_UNSIGNED_LONG @SIZEOF_UNSIGNED_LONG@
 
 /* The size of `unsigned long long', as computed by sizeof. */
-#undef SIZEOF_UNSIGNED_LONG_LONG
+#cmakedefine SIZEOF_UNSIGNED_LONG_LONG @SIZEOF_UNSIGNED_LONG_LONG@
 
 /* The size of `unsigned short', as computed by sizeof. */
-#undef SIZEOF_UNSIGNED_SHORT
+#cmakedefine SIZEOF_UNSIGNED_SHORT @SIZEOF_UNSIGNED_SHORT@
 
 /* Define to 1 if you have the ANSI C header files. */
-#undef STDC_HEADERS
+#cmakedefine STDC_HEADERS
 
 /* Support strip chopping (whether or not to convert single-strip uncompressed
-   images to mutiple strips of specified size to reduce memory usage) */
-#undef STRIPCHOP_DEFAULT
+   images to mutiple strips of ~8Kb to reduce memory usage) */
+#cmakedefine STRIPCHOP_DEFAULT
 
 /* Default size of the strip in bytes (when strip chopping enabled) */
 #undef STRIP_SIZE_DEFAULT
 
 /* Enable SubIFD tag (330) support */
-#undef SUBIFD_SUPPORT
+#cmakedefine SUBIFD_SUPPORT
 
 /* Support ThunderScan 4-bit RLE algorithm */
-#undef THUNDER_SUPPORT
+#cmakedefine THUNDER_SUPPORT
 
 /* Signed 16-bit type */
-#undef TIFF_INT16_T
+#define TIFF_INT16_T  int16_t
 
 /* Signed 32-bit type formatter */
 #undef TIFF_INT32_FORMAT
 
 /* Signed 32-bit type */
-#undef TIFF_INT32_T
+#define TIFF_INT32_T  int32_t
 
 /* Signed 64-bit type formatter */
 #undef TIFF_INT64_FORMAT
 
 /* Signed 64-bit type */
-#undef TIFF_INT64_T
+#define TIFF_INT64_T   int64_t
 
 /* Signed 8-bit type */
-#undef TIFF_INT8_T
+#define TIFF_INT8_T   int8_t
 
 /* Pointer difference type formatter */
 #undef TIFF_PTRDIFF_FORMAT
 
 /* Pointer difference type */
-#undef TIFF_PTRDIFF_T
+#define TIFF_PTRDIFF_T   ptrdiff_t
 
 /* Signed size type formatter */
 #undef TIFF_SSIZE_FORMAT
@@ -297,31 +290,31 @@
 #undef TIFF_SSIZE_T
 
 /* Unsigned 16-bit type */
-#undef TIFF_UINT16_T
+#define TIFF_UINT16_T   uint16_t
 
 /* Unsigned 32-bit type formatter */
 #undef TIFF_UINT32_FORMAT
 
 /* Unsigned 32-bit type */
-#undef TIFF_UINT32_T
+#define TIFF_UINT32_T   uint32_t
 
 /* Unsigned 64-bit type formatter */
 #undef TIFF_UINT64_FORMAT
 
 /* Unsigned 64-bit type */
-#undef TIFF_UINT64_T
+#define TIFF_UINT64_T   uint64_t
 
 /* Unsigned 8-bit type */
-#undef TIFF_UINT8_T
+#define TIFF_UINT8_T    unsigned char
 
 /* Define to 1 if you can safely include both <sys/time.h> and <time.h>. */
-#undef TIME_WITH_SYS_TIME
+#cmakedefine TIME_WITH_SYS_TIME
 
 /* Define to 1 if your <sys/time.h> declares `struct tm'. */
-#undef TM_IN_SYS_TIME
+#cmakedefine TM_IN_SYS_TIME
 
 /* Version number of package */
-#undef VERSION
+#cmakedefine VERSION
 
 /* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
    significant byte first (like Motorola and SPARC, unlike Intel). */
@@ -336,28 +329,30 @@
 #endif
 
 /* Define to 1 if the X Window System is missing or not being used. */
-#undef X_DISPLAY_MISSING
+#cmakedefine X_DISPLAY_MISSING
 
 /* Support Deflate compression */
-#undef ZIP_SUPPORT
+#cmakedefine ZIP_SUPPORT
 
 /* Number of bits in a file offset, on hosts where this is settable. */
-#undef _FILE_OFFSET_BITS
+#cmakedefine _FILE_OFFSET_BITS
 
 /* Define for large files, on AIX-style hosts. */
-#undef _LARGE_FILES
+#cmakedefine _LARGE_FILES
 
 /* Define to empty if `const' does not conform to ANSI C. */
-#undef const
+#cmakedefine const
 
 /* Define to `__inline__' or `__inline' if that's what the C compiler
    calls it, or to nothing if 'inline' is not supported under any name.  */
 #ifndef __cplusplus
-#undef inline
+#define inline
 #endif
 
 /* Define to `long int' if <sys/types.h> does not define. */
-#undef off_t
+#cmakedefine off_t
 
 /* Define to `unsigned int' if <sys/types.h> does not define. */
-#undef size_t
+#cmakedefine size_t
+
+#endif
