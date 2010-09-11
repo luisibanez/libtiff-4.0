@@ -275,7 +275,7 @@
 #define TIFF_INT64_T   int64_t
 
 /* Signed 8-bit type */
-#define TIFF_INT8_T   int8_t
+#define TIFF_INT8_T   signed char
 
 /* Pointer difference type formatter */
 #undef TIFF_PTRDIFF_FORMAT
@@ -284,25 +284,25 @@
 #define TIFF_PTRDIFF_T   ptrdiff_t
 
 /* Signed size type formatter */
-#undef TIFF_SSIZE_FORMAT
+#define TIFF_SSIZE_FORMAT  "%ld"
 
 /* Signed size type */
-#undef TIFF_SSIZE_T
+#define TIFF_SSIZE_T    size_t
 
 /* Unsigned 16-bit type */
-#define TIFF_UINT16_T   uint16_t
+#define TIFF_UINT16_T   unsigned short
 
 /* Unsigned 32-bit type formatter */
-#undef TIFF_UINT32_FORMAT
+#define TIFF_UINT32_FORMAT  "%d"
 
 /* Unsigned 32-bit type */
-#define TIFF_UINT32_T   uint32_t
+#define TIFF_UINT32_T   unsigned int
 
 /* Unsigned 64-bit type formatter */
-#undef TIFF_UINT64_FORMAT
+#define TIFF_UINT64_FORMAT  "%ld"
 
 /* Unsigned 64-bit type */
-#define TIFF_UINT64_T   uint64_t
+#define TIFF_UINT64_T   unsigned long
 
 /* Unsigned 8-bit type */
 #define TIFF_UINT8_T    unsigned char
