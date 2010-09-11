@@ -130,6 +130,8 @@ configure_file(${PROJECT_SOURCE_DIR}/tiffDllConfig.h.in
   ${PROJECT_BINARY_DIR}/tiffDllConfig.h)
 configure_file(${PROJECT_SOURCE_DIR}/tif_config.h.in
   ${PROJECT_BINARY_DIR}/tif_config.h)
+configure_file(${PROJECT_SOURCE_DIR}/tiffconf.h.in
+  ${PROJECT_BINARY_DIR}/tiffconf.h)
 
 add_library(libtiff ${common_SRCS})
 target_link_libraries(libtiff zlib jpeg)
