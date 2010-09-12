@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 2.8)
 
 project(libtiff)
 
+find_package( JPEG )
+
+include_directories(BEFORE ${JPEG_INCLUDE_DIR})
 include_directories(BEFORE ${PROJECT_SOURCE_DIR})
 include_directories(BEFORE ${PROJECT_BINARY_DIR})
 
