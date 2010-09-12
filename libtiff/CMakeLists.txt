@@ -5,6 +5,13 @@ project(libtiff)
 include_directories(BEFORE ${PROJECT_SOURCE_DIR})
 include_directories(BEFORE ${PROJECT_BINARY_DIR})
 
+include(CTest)
+include(CPack)
+
+set (EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin CACHE PATH "Single output directory for building all executables.")
+set (LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin CACHE PATH "Single output directory for building all libraries.")
+mark_as_advanced(LIBRARY_OUTPUT_PATH EXECUTABLE_OUTPUT_PATH)
+
 # library object files common to compression and decompression
 set(common_SRCS
   tif_aux.c
@@ -61,15 +68,15 @@ else (NOT UNIX)
 
   set(common_SRCS ${common_SRCS} tif_unix.c tif_fax3sm.c)
   set_source_files_properties(tif_fax3sm.c GENERATED)
-  add_executable(itkmkg3states mkg3states.c)
+  add_executable(mkg3states mkg3states.c)
   if(CYGWIN)
     set(EXE_EXTENSION .exe)
   endiF(CYGWIN)
   add_custom_command(
     OUTPUT ${PROJECT_BINARY_DIR}/tif_fax3sm.c
-    COMMAND ${EXECUTABLE_OUTPUT_PATH}/${CMAKE_CFG_INTDIR}/itkmkg3states${EXE_EXTENSION}
+    COMMAND ${EXECUTABLE_OUTPUT_PATH}/${CMAKE_CFG_INTDIR}/mkg3states${EXE_EXTENSION}
     ARGS -c const ${PROJECT_BINARY_DIR}/tif_fax3sm.c
-    DEPENDS itkmkg3states
+    DEPENDS mkg3states
     )
 endif (NOT UNIX)
 

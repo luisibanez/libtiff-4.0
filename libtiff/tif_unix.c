@@ -64,7 +64,9 @@ _tiffReadProc(thandle_t fd, void* buf, tmsize_t size)
 		errno=EINVAL;
 		return (tmsize_t) -1;
 	}
-	return ((tmsize_t) read((int) fd, buf, size_io));
+  size_t tfd = (size_t)fd;
+  int    ifd = (int)tfd;
+	return ((tmsize_t) read(ifd, buf, size_io));
 }
 
 static tmsize_t
@@ -76,7 +78,9 @@ _tiffWriteProc(thandle_t fd, void* buf, tmsize_t size)
 		errno=EINVAL;
 		return (tmsize_t) -1;
 	}
-	return ((tmsize_t) write((int) fd, buf, size_io));
+  size_t tfd = (size_t)fd;
+  int    ifd = (int)tfd;
+	return ((tmsize_t) write(ifd, buf, size_io));
 }
 
 static uint64
@@ -88,20 +92,26 @@ _tiffSeekProc(thandle_t fd, uint64 off, int whence)
 		errno=EINVAL;
 		return (uint64) -1; /* this is really gross */
 	}
-	return((uint64)lseek((int)fd,off_io,whence));
+  size_t tfd = (size_t)fd;
+  int    ifd = (int)tfd;
+	return((uint64)lseek(ifd,off_io,whence));
 }
 
 static int
 _tiffCloseProc(thandle_t fd)
 {
-	return(close((int)fd));
+  size_t tfd = (size_t)fd;
+  int    ifd = (int)tfd;
+	return(close(ifd));
 }
 
 static uint64
 _tiffSizeProc(thandle_t fd)
 {
 	struct stat sb;
-	if (fstat((int)fd,&sb)<0)
+  size_t tfd = (size_t)fd;
+  int    ifd = (int)tfd;
+	if (fstat(ifd,&sb)<0)
 		return(0);
 	else
 		return((uint64)sb.st_size);
@@ -115,9 +125,11 @@ _tiffMapProc(thandle_t fd, void** pbase, toff_t* psize)
 {
 	uint64 size64 = _tiffSizeProc(fd);
 	tmsize_t sizem = (tmsize_t)size64;
+  size_t tfd = (size_t)fd;
+  int    ifd = (int)tfd;
 	if ((uint64)sizem==size64) {
 		*pbase = (void*)
-		    mmap(0, (size_t)sizem, PROT_READ, MAP_SHARED, (int) fd, 0);
+		    mmap(0, (size_t)sizem, PROT_READ, MAP_SHARED, ifd, 0);
 		if (*pbase != (void*) -1) {
 			*psize = (tmsize_t)sizem;
 			return (1);
@@ -155,8 +167,11 @@ TIFFFdOpen(int fd, const char* name, const char* mode)
 {
 	TIFF* tif;
 
+  size_t    tfd = fd;
+  thandle_t hfd = (thandle_t)tfd;
+
 	tif = TIFFClientOpen(name, mode,
-	    (thandle_t) fd,
+	    hfd,
 	    _tiffReadProc, _tiffWriteProc,
 	    _tiffSeekProc, _tiffCloseProc, _tiffSizeProc,
 	    _tiffMapProc, _tiffUnmapProc);

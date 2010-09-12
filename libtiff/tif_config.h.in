@@ -41,6 +41,9 @@
    machine */
 #define HAVE_IEEEFP 1
 
+/* Define to 1 if the system has the type `int64'. */
+#cmakedefine HAVE_INT64
+
 /* Define to 1 if the system has the type `int16'. */
 #cmakedefine HAVE_INT16
 
@@ -260,22 +263,38 @@
 #cmakedefine THUNDER_SUPPORT
 
 /* Signed 16-bit type */
+#ifdef HAVE_INT16
 #define TIFF_INT16_T  int16_t
+#else
+#define TIFF_INT16_T  signed short int
+#endif
 
 /* Signed 32-bit type formatter */
 #undef TIFF_INT32_FORMAT
 
 /* Signed 32-bit type */
+#ifdef HAVE_INT32
 #define TIFF_INT32_T  int32_t
+#else
+#define TIFF_INT32_T  signed int
+#endif
 
 /* Signed 64-bit type formatter */
 #undef TIFF_INT64_FORMAT
 
 /* Signed 64-bit type */
+#ifdef HAVE_INT64
 #define TIFF_INT64_T   int64_t
+#else
+#define TIFF_INT64_T   signed long
+#endif
 
 /* Signed 8-bit type */
+#ifdef HAVE_INT8
 #define TIFF_INT8_T   int8_t
+#else
+#define TIFF_INT8_T   signed char
+#endif
 
 /* Pointer difference type formatter */
 #undef TIFF_PTRDIFF_FORMAT
@@ -284,25 +303,25 @@
 #define TIFF_PTRDIFF_T   ptrdiff_t
 
 /* Signed size type formatter */
-#undef TIFF_SSIZE_FORMAT
+#define TIFF_SSIZE_FORMAT  "%ld"
 
 /* Signed size type */
-#undef TIFF_SSIZE_T
+#define TIFF_SSIZE_T    size_t
 
 /* Unsigned 16-bit type */
-#define TIFF_UINT16_T   uint16_t
+#define TIFF_UINT16_T   unsigned short
 
 /* Unsigned 32-bit type formatter */
-#undef TIFF_UINT32_FORMAT
+#define TIFF_UINT32_FORMAT  "%d"
 
 /* Unsigned 32-bit type */
-#define TIFF_UINT32_T   uint32_t
+#define TIFF_UINT32_T   unsigned int
 
 /* Unsigned 64-bit type formatter */
-#undef TIFF_UINT64_FORMAT
+#define TIFF_UINT64_FORMAT  "%ld"
 
 /* Unsigned 64-bit type */
-#define TIFF_UINT64_T   uint64_t
+#define TIFF_UINT64_T   unsigned long
 
 /* Unsigned 8-bit type */
 #define TIFF_UINT8_T    unsigned char
