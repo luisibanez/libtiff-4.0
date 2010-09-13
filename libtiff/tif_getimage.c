@@ -1559,15 +1559,15 @@ DECLARESepPutFunc(putRGBUAseparate16bittile)
 	uint16 *wa = (uint16*) a;
 	(void) img; (void) y;
 	while (h-- > 0) {
-		uint32 r,g,b,a;
+		uint32 t_r,t_g,t_b,t_a;
 		uint8* m;
 		for (x = w; x-- > 0;) {
-			a = img->Bitdepth16To8[*wa++];
-			m = img->UaToAa+(a<<8);
-			r = m[img->Bitdepth16To8[*wr++]];
-			g = m[img->Bitdepth16To8[*wg++]];
-			b = m[img->Bitdepth16To8[*wb++]];
-			*cp++ = PACK4(r,g,b,a);
+			t_a = img->Bitdepth16To8[*wa++];
+			m = img->UaToAa+(t_a<<8);
+			t_r = m[img->Bitdepth16To8[*wr++]];
+			t_g = m[img->Bitdepth16To8[*wg++]];
+			t_b = m[img->Bitdepth16To8[*wb++]];
+			*cp++ = PACK4(t_r,t_g,t_b,t_a);
 		}
 		SKEW4(wr, wg, wb, wa, fromskew);
 		cp += toskew;

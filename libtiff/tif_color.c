@@ -126,37 +126,37 @@ TIFFCIELabToRGBInit(TIFFCIELabToRGB* cielab,
 		    const TIFFDisplay *display, float *refWhite)
 {
 	int i;
-	double gamma;
+	double t_gamma;
 
 	cielab->range = CIELABTORGB_TABLE_RANGE;
 
 	_TIFFmemcpy(&cielab->display, display, sizeof(TIFFDisplay));
 
 	/* Red */
-	gamma = 1.0 / cielab->display.d_gammaR ;
+	t_gamma = 1.0 / cielab->display.d_gammaR ;
 	cielab->rstep =
 		(cielab->display.d_YCR - cielab->display.d_Y0R)	/ cielab->range;
 	for(i = 0; i <= cielab->range; i++) {
 		cielab->Yr2r[i] = cielab->display.d_Vrwr
-		    * ((float)pow((double)i / cielab->range, gamma));
+		    * ((float)pow((double)i / cielab->range, t_gamma));
 	}
 
 	/* Green */
-	gamma = 1.0 / cielab->display.d_gammaG ;
+	t_gamma = 1.0 / cielab->display.d_gammaG ;
 	cielab->gstep =
 	    (cielab->display.d_YCR - cielab->display.d_Y0R) / cielab->range;
 	for(i = 0; i <= cielab->range; i++) {
 		cielab->Yg2g[i] = cielab->display.d_Vrwg
-		    * ((float)pow((double)i / cielab->range, gamma));
+		    * ((float)pow((double)i / cielab->range, t_gamma));
 	}
 
 	/* Blue */
-	gamma = 1.0 / cielab->display.d_gammaB ;
+	t_gamma = 1.0 / cielab->display.d_gammaB ;
 	cielab->bstep =
 	    (cielab->display.d_YCR - cielab->display.d_Y0R) / cielab->range;
 	for(i = 0; i <= cielab->range; i++) {
 		cielab->Yb2b[i] = cielab->display.d_Vrwb
-		    * ((float)pow((double)i / cielab->range, gamma));
+		    * ((float)pow((double)i / cielab->range, t_gamma));
 	}
 
 	/* Init reference white point */

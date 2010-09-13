@@ -688,6 +688,7 @@ static void JPEGFixupTagsSubsamplingSkip(struct JPEGFixupTagsSubsamplingData* da
 static int
 JPEGFixupTags(TIFF* tif)
 {
+  (void) tif;
 	#ifdef CHECK_JPEG_YCBCR_SUBSAMPLING
 	if ((tif->tif_dir.td_photometric==PHOTOMETRIC_YCBCR)&&
 	    (tif->tif_dir.td_planarconfig==PLANARCONFIG_CONTIG)&&

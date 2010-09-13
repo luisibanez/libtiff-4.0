@@ -59,7 +59,7 @@ TIFFFillStripPartial( TIFF *tif, int strip, int read_ahead, int restart )
         tmsize_t bytecountm;
         bytecountm=(tmsize_t) td->td_stripbytecount[strip];
                         
-        if (read_ahead*2 > tif->tif_rawdatasize) {
+        if ((unsigned int)read_ahead*2 > tif->tif_rawdatasize) {
                 assert( restart );
                 
                 tif->tif_curstrip = NOSTRIP;

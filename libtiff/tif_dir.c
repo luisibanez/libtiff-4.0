@@ -543,74 +543,74 @@ _TIFFVSetField(TIFF* tif, uint32 tag, va_list ap)
 				 * passed as a list of separate values. This behaviour
 				 * must be changed in the future!
 				 */
-				int i;
+				int ti;
 				char *val = (char *)tv->value;
 
-				for (i = 0; i < tv->count; i++, val += tv_size) {
+				for (ti = 0; ti < tv->count; ti++, val += tv_size) {
 					switch (fip->field_type) {
 						case TIFF_BYTE:
 						case TIFF_UNDEFINED:
 							{
-								uint8 v = (uint8)va_arg(ap, int);
-								_TIFFmemcpy(val, &v, tv_size);
+								uint8 t_v = (uint8)va_arg(ap, int);
+								_TIFFmemcpy(val, &t_v, tv_size);
 							}
 							break;
 						case TIFF_SBYTE:
 							{
-								int8 v = (int8)va_arg(ap, int);
-								_TIFFmemcpy(val, &v, tv_size);
+								int8 t_v = (int8)va_arg(ap, int);
+								_TIFFmemcpy(val, &t_v, tv_size);
 							}
 							break;
 						case TIFF_SHORT:
 							{
-								uint16 v = (uint16)va_arg(ap, int);
-								_TIFFmemcpy(val, &v, tv_size);
+								uint16 t_v = (uint16)va_arg(ap, int);
+								_TIFFmemcpy(val, &t_v, tv_size);
 							}
 							break;
 						case TIFF_SSHORT:
 							{
-								int16 v = (int16)va_arg(ap, int);
-								_TIFFmemcpy(val, &v, tv_size);
+								int16 t_v = (int16)va_arg(ap, int);
+								_TIFFmemcpy(val, &t_v, tv_size);
 							}
 							break;
 						case TIFF_LONG:
 						case TIFF_IFD:
 							{
-								uint32 v = va_arg(ap, uint32);
-								_TIFFmemcpy(val, &v, tv_size);
+								uint32 t_v = va_arg(ap, uint32);
+								_TIFFmemcpy(val, &t_v, tv_size);
 							}
 							break;
 						case TIFF_SLONG:
 							{
-								int32 v = va_arg(ap, int32);
-								_TIFFmemcpy(val, &v, tv_size);
+								int32 t_v = va_arg(ap, int32);
+								_TIFFmemcpy(val, &t_v, tv_size);
 							}
 							break;
 						case TIFF_LONG8:
 						case TIFF_IFD8:
 							{
-								uint64 v = va_arg(ap, uint64);
-								_TIFFmemcpy(val, &v, tv_size);
+								uint64 t_v = va_arg(ap, uint64);
+								_TIFFmemcpy(val, &t_v, tv_size);
 							}
 							break;
 						case TIFF_SLONG8:
 							{
-								int64 v = va_arg(ap, int64);
-								_TIFFmemcpy(val, &v, tv_size);
+								int64 t_v = va_arg(ap, int64);
+								_TIFFmemcpy(val, &t_v, tv_size);
 							}
 							break;
 						case TIFF_RATIONAL:
 						case TIFF_SRATIONAL:
 						case TIFF_FLOAT:
 							{
-								float v = (float)va_arg(ap, double);
-								_TIFFmemcpy(val, &v, tv_size);
+								float t_v = (float)va_arg(ap, double);
+								_TIFFmemcpy(val, &t_v, tv_size);
 							}
 							break;
 						case TIFF_DOUBLE:
 							{
-								double v = va_arg(ap, double);
-								_TIFFmemcpy(val, &v, tv_size);
+								double t_v = va_arg(ap, double);
+								_TIFFmemcpy(val, &t_v, tv_size);
 							}
 							break;
 						default:
