@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 2.8)
 
 project(libtiff)
 
+find_package( JPEG )
+
+include_directories(BEFORE ${JPEG_INCLUDE_DIR})
 include_directories(BEFORE ${PROJECT_SOURCE_DIR})
 include_directories(BEFORE ${PROJECT_BINARY_DIR})
 
@@ -137,6 +140,8 @@ configure_file(${PROJECT_SOURCE_DIR}/tiffDllConfig.h.in
   ${PROJECT_BINARY_DIR}/tiffDllConfig.h)
 configure_file(${PROJECT_SOURCE_DIR}/tif_config.h.in
   ${PROJECT_BINARY_DIR}/tif_config.h)
+configure_file(${PROJECT_SOURCE_DIR}/tiffconf.h.in
+  ${PROJECT_BINARY_DIR}/tiffconf.h)
 
 add_library(libtiff ${common_SRCS})
 target_link_libraries(libtiff zlib jpeg)

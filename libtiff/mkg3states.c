@@ -336,11 +336,11 @@ FillTable(TIFFFaxTabEnt *T, int Size, struct proto *P, int State)
     }
 }
 
-static  char* storage_class = "";
-static  char* const_class = "";
-static  int packoutput = 1;
-static  char* prebrace = "{";
-static  char* postbrace = "}";
+static const char* storage_class = "";
+static const char* const_class = "";
+static int packoutput = 1;
+static const char* prebrace = "{";
+static const char* postbrace = "}";
 
 void
 WriteTable(FILE* fd, const TIFFFaxTabEnt* T, int Size, const char* name)
@@ -381,7 +381,6 @@ int
 main(int argc, char* argv[])
 {
     FILE* fd;
-    char* outputfile;
     int c;
     extern int optind;
     extern char* optarg;
@@ -407,7 +406,7 @@ main(int argc, char* argv[])
     argv[0]);
       return (-1);
   }
-    outputfile = optind < argc ? argv[optind] : "g3states.h";
+    const char* outputfile = optind < argc ? argv[optind] : "g3states.h";
     fd = fopen(outputfile, "w");
     if (fd == NULL) {
   fprintf(stderr, "%s: %s: Cannot create output file.\n",
